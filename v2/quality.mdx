@@ -17,12 +17,26 @@ v2.0 introduces AI quality prediction, automated IoT testing equipment, and comp
 
 AI predicts quality scores before batch completion:
 
-- Analyzes ingredient quality data
-- Monitors production conditions in real-time
-- Predicts final quality score with 95% accuracy
-- Provides early warnings for potential issues
+<CardGroup cols={2}>
+<Card title="Analyzes ingredient quality data" icon="search">
+AI analyzes ingredient quality data
+</Card>
 
-```javascript
+<Card title="Real-time monitoring" icon="eye">
+Monitors production conditions in real-time
+</Card>
+
+<Card title="95% accuracy" icon="check">
+Predicts final quality score with 95% accuracy
+</Card>
+
+<Card title="Early warnings" icon="bell">
+Provides early warnings for potential issues
+</Card>
+</CardGroup>
+
+<CodeGroup>
+```javascript JavaScript
 // Example: Get AI quality prediction
 const prediction = await salsa.ai.quality.predict({
   batch_id: "BATCH-2024-001",
@@ -32,6 +46,18 @@ const prediction = await salsa.ai.quality.predict({
 console.log(`Predicted quality: ${prediction.score}/10`);
 console.log(`Confidence: ${prediction.confidence}%`);
 ```
+
+```python Python
+# Example: Get AI quality prediction
+prediction = salsa.ai.quality.predict(
+    batch_id="BATCH-2024-001",
+    current_stage="mixing"
+)
+
+print(f"Predicted quality: {prediction['score']}/10")
+print(f"Confidence: {prediction['confidence']}%")
+```
+</CodeGroup>
 
 ### Anomaly Detection
 
@@ -48,10 +74,31 @@ AI identifies quality issues in real-time:
 
 Automated quality tests with IoT devices:
 
-- **pH meters**: Continuous pH monitoring
-- **Viscosity sensors**: Consistency measurements
-- **Color sensors**: Visual consistency checks
-- **Temperature probes**: Production temperature tracking
+<Tabs>
+<Tab title="pH meters">
+<Card title="pH Meters" icon="droplet">
+Continuous pH monitoring for optimal acidity levels
+</Card>
+</Tab>
+
+<Tab title="Viscosity sensors">
+<Card title="Viscosity Sensors" icon="gauge">
+Consistency measurements for perfect texture
+</Card>
+</Tab>
+
+<Tab title="Color sensors">
+<Card title="Color Sensors" icon="palette">
+Visual consistency checks for uniform appearance
+</Card>
+</Tab>
+
+<Tab title="Temperature probes">
+<Card title="Temperature Probes" icon="temperature-half">
+Production temperature tracking for food safety
+</Card>
+</Tab>
+</Tabs>
 
 ### Computer Vision Inspection
 
@@ -62,8 +109,9 @@ AI-powered visual quality control:
 - Portion control verification
 - Packaging quality checks
 
-> **Note:**
+<Info>
 **New in v2.0**: Computer vision systems can inspect 100% of production, compared to manual sampling in v1.0.
+</Info>
 
 
 ## Quality Scoring
@@ -138,8 +186,9 @@ AI suggests quality improvements:
 - Equipment upgrade recommendations
 - Training needs identification
 
-> **Warning:**
+<Warning>
 **Critical Quality Alerts**: AI-detected safety issues trigger immediate production halts and manager notifications.
+</Warning>
 
 
 ## Best Practices

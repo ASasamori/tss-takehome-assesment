@@ -11,18 +11,23 @@ This guide helps you resolve common issues with Salsa as a Service, including AI
 
 Before diving into specific issues, run these quick checks:
 
+<Steps>
+<Step title="Check System Status">
+Visit our [status page](https://status.salsaasaservice.com) to see if there are any ongoing service issues.
+</Step>
 
-1. **Check System Status**
-   Visit our [status page](https://status.salsaasaservice.com) to see if there are any ongoing service issues.
+<Step title="Verify Internet Connection">
+Ensure you have a stable internet connection and can access other websites.
+</Step>
 
-2. **Verify Internet Connection**
-   Ensure you have a stable internet connection and can access other websites.
+<Step title="Clear Browser Cache">
+Clear your browser cache and cookies, then try logging in again.
+</Step>
 
-3. **Clear Browser Cache**
-   Clear your browser cache and cookies, then try logging in again.
-
-4. **Check Browser Compatibility**
-   Ensure you're using a supported browser (Chrome, Firefox, Safari, Edge).
+<Step title="Check Browser Compatibility">
+Ensure you're using a supported browser (Chrome, Firefox, Safari, Edge).
+</Step>
+</Steps>
 
 
 
@@ -30,15 +35,19 @@ Before diving into specific issues, run these quick checks:
 
 ### Login and Authentication
 
-
-**[Can't Log In](#login-issues)**  
+<CardGroup cols={3}>
+<Card title="Can't Log In" icon="lock" href="#login-issues">
 Troubleshoot login issues and password problems.
+</Card>
 
-**[Two-Factor Authentication](#two-factor-auth)**  
+<Card title="Two-Factor Authentication" icon="shield" href="#two-factor-auth">
 Issues with 2FA setup and authentication codes.
+</Card>
 
-**[Account Locked](#account-locked)**  
+<Card title="Account Locked" icon="ban" href="#account-locked">
 Resolve account lockouts and security issues.
+</Card>
+</CardGroup>
 
 
 
@@ -48,23 +57,29 @@ Resolve account lockouts and security issues.
 
 **Solutions:**
 
+<Steps>
+<Step title="Verify Credentials">
+Double-check your email address and password. Ensure Caps Lock is off.
+</Step>
 
-1. **Verify Credentials**
-   Double-check your email address and password. Ensure Caps Lock is off.
+<Step title="Reset Password">
+Use the "Forgot Password" link on the login page to reset your password.
+</Step>
 
-2. **Reset Password**
-   Use the "Forgot Password" link on the login page to reset your password.
+<Step title="Check Email">
+Look for account verification emails in your spam folder.
+</Step>
 
-3. **Check Email**
-   Look for account verification emails in your spam folder.
-
-4. **Contact Support**
-   If the issue persists, contact support with your account email address.
-
+<Step title="Contact Support">
+If the issue persists, contact support with your account email address.
+</Step>
+</Steps>
 
 
-> **Warning:**
+
+<Warning>
 **Security Note**: Never share your password with anyone. Our support team will never ask for your password.
+</Warning>
 
 
 #### Two-Factor Authentication 
@@ -84,44 +99,63 @@ Resolve account lockouts and security issues.
 
 **Problem**: POS data not syncing with Salsa as a Service
 
+<Tabs>
+<Tab title="Square">
+<Steps>
+<Step title="Check Square Connection">
+Verify the Square integration is still connected in your dashboard.
+</Step>
 
-#### Square
+<Step title="Reauthorize Integration">
+Disconnect and reconnect your Square account.
+</Step>
 
-1. **Check Square Connection**
-   Verify the Square integration is still connected in your dashboard.
+<Step title="Check API Permissions">
+Ensure Square API permissions include inventory management.
+</Step>
+</Steps>
+</Tab>
 
-2. **Reauthorize Integration**
-   Disconnect and reconnect your Square account.
+<Tab title="Toast">
+<Steps>
+<Step title="Verify Toast API Key">
+Check that your Toast API credentials are valid and not expired.
+</Step>
 
-3. **Check API Permissions**
-   Ensure Square API permissions include inventory management.
+<Step title="Check Menu Mapping">
+Ensure salsa menu items are properly mapped to inventory items.
+</Step>
+</Steps>
+</Tab>
 
-#### Toast
+<Tab title="Clover">
+<Steps>
+<Step title="Update Clover App">
+Ensure the Salsa as a Service app is updated in your Clover dashboard.
+</Step>
 
-1. **Verify Toast API Key**
-   Check that your Toast API credentials are valid and not expired.
+<Step title="Check Permissions">
+Verify the app has necessary permissions for data access.
+</Step>
+</Steps>
+</Tab>
 
-2. **Check Menu Mapping**
-   Ensure salsa menu items are properly mapped to inventory items.
+<Tab title="General">
+<Steps>
+<Step title="Check Network Connection">
+Ensure stable internet connection for both systems.
+</Step>
 
-#### Clover
+<Step title="Review Sync Logs">
+Check the integration logs for error messages.
+</Step>
 
-1. **Update Clover App**
-   Ensure the Salsa as a Service app is updated in your Clover dashboard.
-
-2. **Check Permissions**
-   Verify the app has necessary permissions for data access.
-
-#### General
-
-1. **Check Network Connection**
-   Ensure stable internet connection for both systems.
-
-2. **Review Sync Logs**
-   Check the integration logs for error messages.
-
-3. **Test Manual Sync**
-   Try manually triggering a data sync from your dashboard.
+<Step title="Test Manual Sync">
+Try manually triggering a data sync from your dashboard.
+</Step>
+</Steps>
+</Tab>
+</Tabs>
 
 
 
@@ -169,21 +203,26 @@ Resolve account lockouts and security issues.
 
 **Problem**: Production batches not tracking properly
 
-> **Note:**
+<Info>
 **Batch Requirements**: Each batch must have a unique batch number and valid recipe assignment.
+</Info>
 
 
 **Troubleshooting Steps:**
 
+<Steps>
+<Step title="Verify Batch Data">
+Check that all required batch information is entered correctly.
+</Step>
 
-1. **Verify Batch Data**
-   Check that all required batch information is entered correctly.
+<Step title="Check Recipe Assignment">
+Ensure the batch is assigned to a valid recipe.
+</Step>
 
-2. **Check Recipe Assignment**
-   Ensure the batch is assigned to a valid recipe.
-
-3. **Review Staff Permissions**
-   Verify the assigned chef has proper permissions for batch management.
+<Step title="Review Staff Permissions">
+Verify the assigned chef has proper permissions for batch management.
+</Step>
+</Steps>
 
 
 
@@ -349,8 +388,9 @@ When contacting support, please include:
 - 📞 **Phone**: 1-800-SALSA-HELP (Mon-Fri, 9 AM - 6 PM EST)
 - 🎫 **Support Ticket**: Create a ticket in your dashboard
 
-> **Note:**
+<Info>
 **Response Times**: We typically respond to support requests within 2-4 hours during business hours.
+</Info>
 
 
 ### Emergency Support
@@ -361,6 +401,7 @@ For critical issues affecting your restaurant operations:
 - 📱 **Text Support**: Text "HELP" to SALSA-911
 - 💬 **Priority Chat**: Available for Enterprise customers
 
-> **Warning:**
+<Warning>
 **Emergency Support**: Available 24/7 for Enterprise customers. Standard support hours apply for other plans.
+</Warning>
 

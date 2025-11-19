@@ -3,9 +3,13 @@ title: "Analytics & Reporting"
 description: "AI-powered insights with predictive analytics and real-time IoT data visualization"
 ---
 
+import { ForecastAccuracyDemo, LiveMetricsCounter } from "/snippets/interactive-demo.jsx"
+
 # Analytics & Reporting
 
 Get AI-powered insights with predictive analytics, real-time IoT data, and advanced visualization.
+
+<LiveMetricsCounter />
 
 ## Overview
 
@@ -17,17 +21,34 @@ Transform your salsa data into actionable insights with AI-driven predictions, r
 
 Real-time metrics enhanced with AI predictions:
 
-- **Demand Forecasting**: 7-30 day demand predictions
-- **Quality Predictions**: Predicted quality scores for in-progress batches
-- **Cost Forecasting**: Predicted costs based on trends
-- **Waste Predictions**: AI-identified waste reduction opportunities
-- **Equipment Health**: Predicted maintenance needs
+<CardGroup cols={2}>
+<Card title="Demand Forecasting" icon="chart-line">
+7-30 day demand predictions
+</Card>
+
+<Card title="Quality Predictions" icon="medal">
+Predicted quality scores for in-progress batches
+</Card>
+
+<Card title="Cost Forecasting" icon="dollar-sign">
+Predicted costs based on trends
+</Card>
+
+<Card title="Waste Predictions" icon="trash">
+AI-identified waste reduction opportunities
+</Card>
+
+<Card title="Equipment Health" icon="wrench">
+Predicted maintenance needs
+</Card>
+</CardGroup>
 
 ### Smart Alerts
 
 AI-powered intelligent alerting:
 
-```javascript
+<CodeGroup>
+```javascript JavaScript
 // Example: Configure AI-powered alerts
 const alert = await salsa.ai.analytics.createSmartAlert({
   type: "anomaly_detection",
@@ -37,25 +58,64 @@ const alert = await salsa.ai.analytics.createSmartAlert({
 });
 ```
 
+```python Python
+# Example: Configure AI-powered alerts
+alert = salsa.ai.analytics.create_smart_alert(
+    type="anomaly_detection",
+    metric="production_efficiency",
+    sensitivity="medium",
+    actions=["notify_manager", "create_ticket"]
+)
+```
+</CodeGroup>
+
 ## Advanced Analytics
 
-### Machine Learning Insights
-
+<Tabs>
+<Tab title="Machine Learning Insights">
 AI uncovers hidden patterns:
 
-- **Correlation Analysis**: Identifies relationships between variables
-- **Trend Prediction**: Forecasts future performance
-- **Optimization Recommendations**: AI suggests improvements
-- **What-If Analysis**: Simulate different scenarios
+<CardGroup cols={2}>
+<Card title="Correlation Analysis" icon="link">
+Identifies relationships between variables
+</Card>
 
-### Real-Time IoT Analytics
+<Card title="Trend Prediction" icon="chart-line">
+Forecasts future performance
+</Card>
 
+<Card title="Optimization Recommendations" icon="lightbulb">
+AI suggests improvements
+</Card>
+
+<Card title="What-If Analysis" icon="lightbulb">
+Simulate different scenarios
+</Card>
+</CardGroup>
+</Tab>
+
+<Tab title="Real-Time IoT Analytics">
 Live sensor data visualization:
 
-- Temperature trends across all sensors
-- RFID-based inventory movement tracking
-- Equipment performance metrics
-- Environmental condition monitoring
+<CardGroup cols={2}>
+<Card title="Temperature Trends" icon="temperature-half">
+Temperature trends across all sensors
+</Card>
+
+<Card title="Inventory Movement" icon="boxes-stacked">
+RFID-based inventory movement tracking
+</Card>
+
+<Card title="Equipment Performance" icon="gauge-high">
+Equipment performance metrics
+</Card>
+
+<Card title="Environmental Monitoring" icon="cloud-sun">
+Environmental condition monitoring
+</Card>
+</CardGroup>
+</Tab>
+</Tabs>
 
 ## Predictive Analytics
 
@@ -67,6 +127,8 @@ AI-powered demand predictions:
 - Confidence intervals for all predictions
 - External factor integration (weather, events)
 - Seasonal pattern recognition
+
+<ForecastAccuracyDemo />
 
 ```graphql
 # Example: GraphQL query for AI forecast
@@ -144,18 +206,23 @@ Real-time operational monitoring:
 
 Intelligent report generation:
 
+<Steps>
+<Step title="Ask in Natural Language">
+Describe the report you want in plain English.
+</Step>
 
-1. **Ask in Natural Language**
-   Describe the report you want in plain English.
+<Step title="AI Generates Report">
+AI selects optimal metrics, visualizations, and filters.
+</Step>
 
-2. **AI Generates Report**
-   AI selects optimal metrics, visualizations, and filters.
+<Step title="Review & Refine">
+Adjust AI-generated report to your preferences.
+</Step>
 
-3. **Review & Refine**
-   Adjust AI-generated report to your preferences.
-
-4. **Automate & Share**
-   Schedule delivery with AI-generated insights included.
+<Step title="Automate & Share">
+Schedule delivery with AI-generated insights included.
+</Step>
+</Steps>
 
 
 
@@ -208,8 +275,9 @@ Receive daily AI-generated insights:
 - Performance highlights
 - Actionable recommendations
 
-> **Note:**
+<Info>
 **New in v2.0**: AI analyzes all your data overnight and delivers a personalized daily briefing with the most important insights and recommended actions.
+</Info>
 
 
 ### Continuous Learning
