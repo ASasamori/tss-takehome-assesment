@@ -18,39 +18,66 @@ v2.0's AI forecasting engine uses multiple machine learning models to predict sa
 
 ### Configuring Advanced Forecasting
 
+<Steps>
+<Step title="Select Forecast Horizon">
+Choose your forecasting window based on your operational needs:
+- **Short-term (7 days)**: Daily production planning
+- **Medium-term (14 days)**: Ingredient ordering and staffing
+- **Long-term (30+ days)**: Strategic planning and seasonal prep
+</Step>
 
-1. **Select Forecast Horizon**
-   Choose your forecasting window based on your operational needs:
-    - **Short-term (7 days)**: Daily production planning
-    - **Medium-term (14 days)**: Ingredient ordering and staffing
-    - **Long-term (30+ days)**: Strategic planning and seasonal prep
+<Step title="Configure Data Sources">
+Connect additional data sources to improve accuracy:
 
-2. **Configure Data Sources**
-   Connect additional data sources to improve accuracy:
-    ```javascript
-    const forecastConfig = {
-      data_sources: {
-        pos_sales: true,
-        reservations: true,
-        weather_api: "openweathermap",
-        events: ["eventbrite", "local_calendar"],
-        foot_traffic: "sensor_data",
-        social_media: ["yelp", "google_reviews"]
-      },
-      model_parameters: {
-        confidence_level: 0.95,
-        seasonality: "auto_detect",
-        trend_sensitivity: "medium",
-        anomaly_detection: true
-      }
-    };
-    ```
+<CodeGroup>
+```javascript JavaScript
+const forecastConfig = {
+  data_sources: {
+    pos_sales: true,
+    reservations: true,
+    weather_api: "openweathermap",
+    events: ["eventbrite", "local_calendar"],
+    foot_traffic: "sensor_data",
+    social_media: ["yelp", "google_reviews"]
+  },
+  model_parameters: {
+    confidence_level: 0.95,
+    seasonality: "auto_detect",
+    trend_sensitivity: "medium",
+    anomaly_detection: true
+  }
+};
+```
 
-3. **Set Alert Thresholds**
-   Configure alerts for significant forecast changes or anomalies.
+```python Python
+forecast_config = {
+    "data_sources": {
+        "pos_sales": True,
+        "reservations": True,
+        "weather_api": "openweathermap",
+        "events": ["eventbrite", "local_calendar"],
+        "foot_traffic": "sensor_data",
+        "social_media": ["yelp", "google_reviews"]
+    },
+    "model_parameters": {
+        "confidence_level": 0.95,
+        "seasonality": "auto_detect",
+        "trend_sensitivity": "medium",
+        "anomaly_detection": True
+    }
+}
+```
+</CodeGroup>
+</Step>
 
-4. **Enable Auto-Actions**
-   Let AI automatically adjust production schedules based on forecasts.
+<Step title="Set Alert Thresholds">
+Configure alerts for significant forecast changes or anomalies.
+</Step>
+
+<Step title="Enable Auto-Actions">
+Let AI automatically adjust production schedules based on forecasts.
+</Step>
+</Steps>
 
 
 
@@ -125,8 +152,9 @@ The AI automatically:
 
 Access comprehensive sensor data in real-time:
 
-> **Note:**
+<Info>
 **Dashboard Features**: Live sensor feeds, historical trends, anomaly alerts, predictive maintenance warnings, and automated reports.
+</Info>
 
 
 ```python
@@ -157,22 +185,27 @@ history = client.iot.query_history(
 
 AI analyzes sensor patterns to predict equipment failures before they occur:
 
+<Steps>
+<Step title="Equipment Profiling">
+System learns normal operating parameters for each piece of equipment.
+</Step>
 
-1. **Equipment Profiling**
-   System learns normal operating parameters for each piece of equipment.
+<Step title="Anomaly Detection">
+ML models detect subtle changes that indicate potential issues:
+- Temperature fluctuations
+- Unusual vibration patterns
+- Performance degradation
+- Power consumption changes
+</Step>
 
-2. **Anomaly Detection**
-   ML models detect subtle changes that indicate potential issues:
-    - Temperature fluctuations
-    - Unusual vibration patterns
-    - Performance degradation
-    - Power consumption changes
+<Step title="Failure Prediction">
+Predicts equipment failures 3-14 days in advance with 85% accuracy.
+</Step>
 
-3. **Failure Prediction**
-   Predicts equipment failures 3-14 days in advance with 85% accuracy.
-
-4. **Automated Alerts**
-   Notifies maintenance team with specific recommended actions.
+<Step title="Automated Alerts">
+Notifies maintenance team with specific recommended actions.
+</Step>
+</Steps>
 
 
 
@@ -182,51 +215,74 @@ AI analyzes sensor patterns to predict equipment failures before they occur:
 
 Let AI manage your ingredient inventory automatically:
 
+<Accordion title="Configuration">
+<CodeGroup>
+```javascript JavaScript
+const autoOrderConfig = {
+  enabled: true,
+  suppliers: ["sysco", "us_foods"],
+  rules: {
+    reorder_trigger: "forecast_based",  // or "threshold_based"
+    lead_time_buffer: 2,  // days
+    safety_stock_level: 1.5,  // multiplier
+    max_order_frequency: "daily",
+    budget_constraints: {
+      monthly_max: 50000,
+      per_order_max: 5000
+    }
+  },
+  approval_workflow: {
+    auto_approve_under: 1000,
+    require_approval_over: 1000,
+    approvers: ["manager@restaurant.com"]
+  }
+};
+```
 
-#### Configuration
-
-```javascript
-    const autoOrderConfig = {
-      enabled: true,
-      suppliers: ["sysco", "us_foods"],
-      rules: {
-        reorder_trigger: "forecast_based",  // or "threshold_based"
-        lead_time_buffer: 2,  // days
-        safety_stock_level: 1.5,  // multiplier
-        max_order_frequency: "daily",
-        budget_constraints: {
-          monthly_max: 50000,
-          per_order_max: 5000
+```python Python
+auto_order_config = {
+    "enabled": True,
+    "suppliers": ["sysco", "us_foods"],
+    "rules": {
+        "reorder_trigger": "forecast_based",  # or "threshold_based"
+        "lead_time_buffer": 2,  # days
+        "safety_stock_level": 1.5,  # multiplier
+        "max_order_frequency": "daily",
+        "budget_constraints": {
+            "monthly_max": 50000,
+            "per_order_max": 5000
         }
-      },
-      approval_workflow: {
-        auto_approve_under: 1000,
-        require_approval_over: 1000,
-        approvers: ["manager@restaurant.com"]
-      }
-    };
-    ```
+    },
+    "approval_workflow": {
+        "auto_approve_under": 1000,
+        "require_approval_over": 1000,
+        "approvers": ["manager@restaurant.com"]
+    }
+}
+```
+</CodeGroup>
+</Accordion>
 
-#### Order Logic
-
+<Accordion title="Order Logic">
 The AI considers multiple factors:
 
-    1. **Demand Forecast**: Predicted usage for next 7-30 days
-    2. **Current Inventory**: Real-time stock levels
-    3. **Supplier Lead Times**: Historical delivery times
-    4. **Cost Optimization**: Best pricing and minimum order quantities
-    5. **Seasonality**: Seasonal ingredient availability
-    6. **Quality**: Supplier quality scores and ratings
+1. **Demand Forecast**: Predicted usage for next 7-30 days
+2. **Current Inventory**: Real-time stock levels
+3. **Supplier Lead Times**: Historical delivery times
+4. **Cost Optimization**: Best pricing and minimum order quantities
+5. **Seasonality**: Seasonal ingredient availability
+6. **Quality**: Supplier quality scores and ratings
+</Accordion>
 
-#### Order Monitoring
-
+<Accordion title="Order Monitoring">
 Track automated orders:
 
-    - Order confirmation and tracking
-    - Delivery status updates
-    - Quality verification upon receipt
-    - Automatic inventory updates
-    - Cost tracking and budget alerts
+- Order confirmation and tracking
+- Delivery status updates
+- Quality verification upon receipt
+- Automatic inventory updates
+- Cost tracking and budget alerts
+</Accordion>
 
 
 
@@ -241,31 +297,36 @@ AI optimizes production schedules for maximum efficiency:
 
 Create custom automation workflows with our visual workflow builder:
 
+<Steps>
+<Step title="Choose Trigger">
+Select what initiates the workflow:
+- Time-based (schedule)
+- Event-based (low stock, quality alert)
+- Forecast-based (predicted demand spike)
+- Manual trigger
+</Step>
 
-1. **Choose Trigger**
-   Select what initiates the workflow:
-    - Time-based (schedule)
-    - Event-based (low stock, quality alert)
-    - Forecast-based (predicted demand spike)
-    - Manual trigger
+<Step title="Define Conditions">
+Set conditions that must be met:
+- Inventory levels
+- Staff availability
+- Equipment status
+- Budget constraints
+</Step>
 
-2. **Define Conditions**
-   Set conditions that must be met:
-    - Inventory levels
-    - Staff availability
-    - Equipment status
-    - Budget constraints
+<Step title="Configure Actions">
+Choose automated actions:
+- Create production batches
+- Send notifications
+- Order ingredients
+- Update schedules
+- Generate reports
+</Step>
 
-3. **Configure Actions**
-   Choose automated actions:
-    - Create production batches
-    - Send notifications
-    - Order ingredients
-    - Update schedules
-    - Generate reports
-
-4. **Set Approvals**
-   Optional: require human approval before executing certain actions.
+<Step title="Set Approvals">
+Optional: require human approval before executing certain actions.
+</Step>
+</Steps>
 
 
 
@@ -513,6 +574,7 @@ Advanced features require advanced support:
 - 🎓 **Training Programs**: On-site and virtual training for your team
 - 📞 **24/7 Support**: Enterprise support available around the clock
 
-> **Note:**
+<Info>
 **Enterprise Support**: All advanced features include priority support with 1-hour response SLA for critical issues.
+</Info>
 

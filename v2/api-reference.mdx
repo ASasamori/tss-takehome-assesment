@@ -13,16 +13,18 @@ The v2.0 API adds GraphQL support, enhanced webhooks, and new AI forecasting end
 https://api.salsaasaservice.com/v2
 ```
 
-> **Note:**
+<Info>
 **New in v2.0**: GraphQL endpoint at `https://api.salsaasaservice.com/graphql`
+</Info>
 
 
 ## Authentication
 
 All API requests require authentication using your API key.
 
-> **Note:**
+<Info>
 **API Key**: Get your API key from the [Developer Settings](https://app.salsaasaservice.com/settings/api) in your dashboard.
+</Info>
 
 
 ### Authentication Header
@@ -49,18 +51,23 @@ X-RateLimit-Reset: 1640995200
 
 ## Core Endpoints
 
-
-**[Inventory Management](#inventory)**  
+<CardGroup cols={2}>
+<Card title="Inventory Management" icon="box" href="#inventory">
 Manage salsa ingredients, track stock levels, and monitor freshness.
+</Card>
 
-**[Recipe Management](#recipes)**  
+<Card title="Recipe Management" icon="book" href="#recipes">
 Create, update, and manage salsa recipes and production workflows.
+</Card>
 
-**[Production Tracking](#production)**  
+<Card title="Production Tracking" icon="factory" href="#production">
 Track salsa production batches, quality metrics, and yield data.
+</Card>
 
-**[Analytics & Reporting](#analytics)**  
+<Card title="Analytics & Reporting" icon="chart-line" href="#analytics">
 Access detailed analytics and generate custom reports.
+</Card>
+</CardGroup>
 
 
 
@@ -70,13 +77,19 @@ Access detailed analytics and generate custom reports.
 
 Retrieve a list of all ingredients in your inventory.
 
-```http
+<RequestExample>
+```http Request
 GET /ingredients
 ```
 
-**Response:**
+```bash cURL
+curl -X GET https://api.salsaasaservice.com/v2/ingredients \
+  -H "Authorization: Bearer YOUR_API_KEY"
+```
+</RequestExample>
 
-```json
+<ResponseExample>
+```json Response
 {
   "data": [
     {
@@ -98,28 +111,85 @@ GET /ingredients
   }
 }
 ```
+</ResponseExample>
+
+**Response Fields:**
+
+<ResponseField name="data" type="array" required>
+Array of ingredient objects
+</ResponseField>
+
+<ResponseField name="data[].id" type="string" required>
+Unique ingredient identifier
+</ResponseField>
+
+<ResponseField name="data[].name" type="string" required>
+Name of the ingredient
+</ResponseField>
+
+<ResponseField name="data[].category" type="string" required>
+Category classification (vegetables, spices, etc.)
+</ResponseField>
+
+<ResponseField name="data[].current_stock" type="number" required>
+Current stock level
+</ResponseField>
+
+<ResponseField name="data[].unit" type="string" required>
+Unit of measurement (lbs, oz, etc.)
+</ResponseField>
+
+<ResponseField name="data[].supplier" type="string">
+Supplier name
+</ResponseField>
+
+<ResponseField name="data[].last_updated" type="string" required>
+ISO 8601 timestamp of last update
+</ResponseField>
+
+<ResponseField name="data[].expiry_date" type="string">
+ISO 8601 timestamp of expiration date
+</ResponseField>
+
+<ResponseField name="data[].quality_score" type="number">
+Quality score from 0-10
+</ResponseField>
+
+<ResponseField name="pagination" type="object" required>
+Pagination information
+</ResponseField>
 
 ### Update Ingredient Stock
 
 Update the stock level for a specific ingredient.
 
-```http
+<RequestExample>
+```http Request
 PUT /ingredients/{ingredient_id}/stock
 ```
 
-**Request Body:**
+```bash cURL
+curl -X PUT https://api.salsaasaservice.com/v2/ingredients/ing_123/stock \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "quantity": 30.0,
+    "unit": "lbs",
+    "notes": "New shipment received"
+  }'
+```
 
-```json
+```json Request Body
 {
   "quantity": 30.0,
   "unit": "lbs",
   "notes": "New shipment received"
 }
 ```
+</RequestExample>
 
-**Response:**
-
-```json
+<ResponseExample>
+```json Response
 {
   "id": "ing_123",
   "name": "Roma Tomatoes",
@@ -128,18 +198,32 @@ PUT /ingredients/{ingredient_id}/stock
   "updated_at": "2024-01-15T11:00:00Z"
 }
 ```
+</ResponseExample>
 
 ### Add New Ingredient
 
 Add a new ingredient to your inventory.
 
-```http
+<RequestExample>
+```http Request
 POST /ingredients
 ```
 
-**Request Body:**
+```bash cURL
+curl -X POST https://api.salsaasaservice.com/v2/ingredients \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Jalapeño Peppers",
+    "category": "vegetables",
+    "initial_stock": 5.0,
+    "unit": "lbs",
+    "supplier": "Spice Garden",
+    "expiry_date": "2024-01-25T00:00:00Z"
+  }'
+```
 
-```json
+```json Request Body
 {
   "name": "Jalapeño Peppers",
   "category": "vegetables",
@@ -149,6 +233,7 @@ POST /ingredients
   "expiry_date": "2024-01-25T00:00:00Z"
 }
 ```
+</RequestExample>
 
 ## Recipe Management 
 
@@ -366,15 +451,19 @@ The API uses standard HTTP status codes and returns detailed error information.
 
 We provide official SDKs for popular programming languages:
 
-
-**[JavaScript/Node.js](https://github.com/salsaasaservice/salsa-js)**  
+<CardGroup cols={3}>
+<Card title="JavaScript/Node.js" icon="js" href="https://github.com/salsaasaservice/salsa-js">
 Official SDK for JavaScript and Node.js applications.
+</Card>
 
-**[Python](https://github.com/salsaasaservice/salsa-python)**  
+<Card title="Python" icon="python" href="https://github.com/salsaasaservice/salsa-python">
 Python SDK for data analysis and automation.
+</Card>
 
-**[PHP](https://github.com/salsaasaservice/salsa-php)**  
+<Card title="PHP" icon="php" href="https://github.com/salsaasaservice/salsa-php">
 PHP SDK for web applications and WordPress plugins.
+</Card>
+</CardGroup>
 
 
 
@@ -414,8 +503,9 @@ Use our sandbox environment for testing your integrations:
 https://api-sandbox.salsaasaservice.com/v1
 ```
 
-> **Warning:**
+<Warning>
 **Sandbox Data**: The sandbox environment uses test data and doesn't affect your production account.
+</Warning>
 
 
 ## Support

@@ -9,24 +9,31 @@ Salsa as a Service seamlessly connects with your existing restaurant technology 
 
 ## Integration Categories
 
-
-**[Point of Sale (POS)](#pos-systems)**  
+<CardGroup cols={3}>
+<Card title="Point of Sale (POS)" icon="credit-card" href="#pos-systems">
 Connect with major POS platforms for real-time sales and inventory sync.
+</Card>
 
-**[Supply Chain](#supply-chain)**  
+<Card title="Supply Chain" icon="truck" href="#supply-chain">
 Integrate with food distributors and suppliers for automated ordering.
+</Card>
 
-**[Kitchen Management](#kitchen-systems)**  
+<Card title="Kitchen Management" icon="utensils" href="#kitchen-systems">
 Sync with KDS, recipe management, and kitchen automation systems.
+</Card>
 
-**[Enterprise Systems](#enterprise)**  
+<Card title="Enterprise Systems" icon="building" href="#enterprise">
 Connect with ERP, accounting, and business intelligence platforms.
+</Card>
 
-**[Communication](#communication)**  
+<Card title="Communication" icon="phone" href="#communication">
 Integrate with Slack, Teams, SMS, and other communication tools.
+</Card>
 
-**[IoT & Hardware](#iot-hardware)**  
+<Card title="IoT & Hardware" icon="microchip" href="#iot-hardware">
 Connect sensors, scales, and smart kitchen equipment.
+</Card>
+</CardGroup>
 
 
 
@@ -34,8 +41,8 @@ Connect sensors, scales, and smart kitchen equipment.
 
 ### Popular POS Integrations
 
-#### Square
-
+<Tabs>
+<Tab title="Square">
 **Integration Level**: ⭐⭐⭐⭐⭐ Native
 
 **Features:**
@@ -49,7 +56,8 @@ Connect sensors, scales, and smart kitchen equipment.
 
 **API Version**: Square v2 API
 
-```bash
+<CodeGroup>
+```bash CLI
 # Quick setup via CLI
 salsa integrations add square \
   --oauth \
@@ -57,8 +65,20 @@ salsa integrations add square \
   --sync realtime
 ```
 
-#### Toast
+```javascript JavaScript
+const salsa = new SalsaClient(apiKey);
 
+await salsa.integrations.connect({
+  provider: 'square',
+  oauth: true,
+  locations: 'all',
+  sync: 'realtime'
+});
+```
+</CodeGroup>
+</Tab>
+
+<Tab title="Toast">
 **Integration Level**: ⭐⭐⭐⭐⭐ Native
 
 **Features:**
@@ -72,7 +92,8 @@ salsa integrations add square \
 
 **API Version**: Toast API v2
 
-```javascript
+<CodeGroup>
+```javascript JavaScript
 // Setup via SDK
 const salsa = new SalsaClient(apiKey);
 
@@ -91,8 +112,30 @@ await salsa.integrations.connect({
 });
 ```
 
-#### Clover
+```python Python
+# Setup via SDK
+from salsa_sdk import SalsaClient
 
+salsa = SalsaClient(api_key)
+
+salsa.integrations.connect(
+    provider='toast',
+    credentials={
+        'client_id': os.getenv('TOAST_CLIENT_ID'),
+        'client_secret': os.getenv('TOAST_CLIENT_SECRET'),
+        'restaurant_guid': os.getenv('TOAST_RESTAURANT_GUID')
+    },
+    options={
+        'sync_interval': '5m',
+        'include_labor': True,
+        'menu_mapping': 'auto'
+    }
+)
+```
+</CodeGroup>
+</Tab>
+
+<Tab title="Clover">
 **Integration Level**: ⭐⭐⭐⭐⭐ Native
 
 **Features:**
@@ -105,9 +148,9 @@ await salsa.integrations.connect({
 **Setup Time**: 5 minutes
 
 **Installation**: Available in Clover App Market. Search for "Salsa as a Service v2.0" in your Clover dashboard.
+</Tab>
 
-#### Lightspeed
-
+<Tab title="Lightspeed">
 **Integration Level**: ⭐⭐⭐⭐ Certified Partner
 
 **Features:**
@@ -119,9 +162,9 @@ await salsa.integrations.connect({
 **Setup Time**: 15 minutes
 
 **Compatibility**: Lightspeed Restaurant (formerly Upserve)
+</Tab>
 
-#### TouchBistro
-
+<Tab title="TouchBistro">
 **Integration Level**: ⭐⭐⭐⭐ Certified Partner
 
 **Features:**
@@ -131,9 +174,9 @@ await salsa.integrations.connect({
 - Reservation integration
 
 **Setup Time**: 15 minutes
+</Tab>
 
-#### Revel
-
+<Tab title="Revel">
 **Integration Level**: ⭐⭐⭐⭐ Certified Partner
 
 **Features:**
@@ -143,6 +186,8 @@ await salsa.integrations.connect({
 - Inventory management sync
 
 **Setup Time**: 20 minutes
+</Tab>
+</Tabs>
 
 
 
@@ -428,29 +473,35 @@ Real-time event notifications to your systems.
 
 Build custom integrations with our tools:
 
+<Steps>
+<Step title="Review Documentation">
+Explore our [API Reference](/v2/api-reference) and developer guides.
+</Step>
 
-1. **Review Documentation**
-   Explore our [API Reference](/v2/api-reference) and developer guides.
+<Step title="Get API Credentials">
+Generate API keys from your dashboard Settings > Developer.
+</Step>
 
-2. **Get API Credentials**
-   Generate API keys from your dashboard Settings > Developer.
+<Step title="Use SDKs">
+Leverage our official SDKs for faster development:
+- JavaScript/Node.js
+- Python
+- PHP
+- Ruby
+- Go
+- Java
+- C#
+- Swift
+</Step>
 
-3. **Use SDKs**
-   Leverage our official SDKs for faster development:
-    - JavaScript/Node.js
-    - Python
-    - PHP
-    - Ruby
-    - Go
-    - Java
-    - C#
-    - Swift
+<Step title="Test in Sandbox">
+Use our sandbox environment for safe testing.
+</Step>
 
-4. **Test in Sandbox**
-   Use our sandbox environment for safe testing.
-
-5. **Deploy to Production**
-   Move to production with confidence after thorough testing.
+<Step title="Deploy to Production">
+Move to production with confidence after thorough testing.
+</Step>
+</Steps>
 
 
 
@@ -472,30 +523,36 @@ Interactive API explorer and testing tools.
 - 📚 **Knowledge Base**: Browse integration tutorials
 - 🎥 **Video Guides**: Step-by-step integration walkthroughs
 
-> **Note:**
+<Info>
 **Enterprise Integration Support**: Enterprise customers receive dedicated integration engineers and priority support.
+</Info>
 
 
 ## Request New Integrations
 
 Don't see your system listed? We're constantly adding new integrations.
 
+<Steps>
+<Step title="Submit Request">
+Submit an integration request through your dashboard or via email.
+</Step>
 
-1. **Submit Request**
-   Submit an integration request through your dashboard or via email.
+<Step title="Vote on Requests">
+Vote for requested integrations to help us prioritize.
+</Step>
 
-2. **Vote on Requests**
-   Vote for requested integrations to help us prioritize.
+<Step title="Track Progress">
+Follow the development progress of requested integrations.
+</Step>
 
-3. **Track Progress**
-   Follow the development progress of requested integrations.
-
-4. **Beta Testing**
-   Join beta programs to test new integrations early.
-
+<Step title="Beta Testing">
+Join beta programs to test new integrations early.
+</Step>
+</Steps>
 
 
-> **Note:**
+
+<Info>
 **Most Requested Integrations (Coming Soon):**
 - DoorDash Drive
 - Uber Eats Manager
@@ -504,3 +561,4 @@ Don't see your system listed? We're constantly adding new integrations.
 - OpenTable
 - 7shifts scheduling
 - HotSchedules
+</Info>
